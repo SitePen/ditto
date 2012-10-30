@@ -1,5 +1,11 @@
 $(function(){
-	
+	// Make sure we are all good in terms of browsers
+	var ua = $.browser;
+	if(!(ua.mozilla && (ua.version.slice(0,3) >= "16")) && !(ua.webkit && (ua.version.slice(0,3) >= "22"))){
+		$("#wrapper").remove();
+		$(".alert").show();
+	}
+
 	var dropbox = $('#dropbox');
 	var message = $('.message', dropbox);
 	
