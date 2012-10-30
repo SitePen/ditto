@@ -19,6 +19,11 @@
 	display:none;
 }
 
+.twitterLink, .twitterLink:active, .twitterLink:visited{
+	text-decoration: none;
+	color:#EEE;
+}
+
 .alert .spacer{
 	height:30px;
 }
