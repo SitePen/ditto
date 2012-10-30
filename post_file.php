@@ -23,7 +23,7 @@
 			$output = array();
 			exec("python ditto.py ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4)), $output);
 			$deps = $output[0];
-			exec("rm -rf ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4)), $dontCare);
+			exec("rm -rf ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4))."*", $dontCare);
 			exit_status($deps);
 		}
 	}
