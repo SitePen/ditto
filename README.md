@@ -14,7 +14,15 @@ Ditto works by traversing a project's file tree and finding all modules that are
 
 What it doesn't do
 -----------
+
 Ditto does <b>not</b> traverse the dependency tree. It will only list the modules that are required <i>within</i> your project. For example, if I require a `dijit.form.FilteringSelect` within my project, Ditto will only list "dijit/form/FilteringSelect", and not all dependencies of the FilteringSelect widget itself. The Dojo Build System takes care of all implicit dependencies, so these shouldn't be included in your build profiles anyways.
+
+
+
+Browser support
+-----------
+
+Ditto requires a standards-compliant browser that supports HTML5 [File Access](http://www.html5rocks.com/en/features/file_access). Use the latest version of Safari, Firefox, or Chrome and you should be fine. I could definitely use some help to determine specific version cutoffs.
 
 
 
@@ -36,4 +44,5 @@ Features & bugs
 If you experience any issues using Ditto, or would like to see new functionality added, drop a line on our Issue Tracker.
 
 https://github.com/bitpshr/ditto/issues
+
 
