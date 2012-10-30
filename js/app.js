@@ -5,7 +5,13 @@ $(function(){
 		$("#wrapper").remove();
 		$(".alert").show();
 	}
-
+	// Connect to refresh
+	$(".refresh").click(function(){
+		$("#dropbox").show();
+		$("#results").html("");
+		$(".refresh").hide();
+	});
+	// Handles
 	var dropbox = $('#dropbox');
 	var message = $('.message', dropbox);
 	
@@ -43,6 +49,7 @@ $(function(){
 
 		uploadStarted:function(i, file, len){
 			$("#dropbox").hide();
+			$(".refresh").show();
 			var template = "<div class='result loading' id='result-"+i+"'>"+
 								'<div id="outer-barG-'+i+'" class="outer-barG">'+
 									'<div id="front-barG" class="bar-animationG">'+
