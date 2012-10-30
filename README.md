@@ -5,11 +5,15 @@ Ditto is a webapp that auto-magically resolves a project's Dojo dependencies. It
 
 
 
-How it works
+What it does
 -----------
 
-Ditto works by traversing a project's file tree and finding all modules that are explicitly required. The modules can be AMD modules or legacy Dojo modules.
+Ditto works by traversing a project's file tree and finding all modules that are explicitly required. The modules can be AMD modules or legacy Dojo modules. Ditto will format all dependcies in the required format for a custom Dojo build.
 
+
+
+What it doesn't do
+-----------
 Ditto does <b>not</b> traverse the dependency tree. It will only list the modules that are required <i>within</i> your project. For example, if I require a `dijit.form.FilteringSelect` within my project, Ditto will only list "dijit/form/FilteringSelect", and not all dependencies of the FilteringSelect widget itself. The Dojo Build System takes care of all implicit dependencies, so these shouldn't be included in your build profiles anyways.
 
 
