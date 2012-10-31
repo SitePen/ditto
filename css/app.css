@@ -195,7 +195,8 @@ footer span{
 }
 
 .result{
-	float:left;
+	display:inline-block;
+	vertical-align: top;
 	height:500px;
 	width:300px;
 	border-radius: 3px;
