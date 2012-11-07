@@ -33,7 +33,6 @@ Ditto is a <b>work in progress</b>. There are several enhancements that can be m
 
 * Ignore certain files. Add an optional textbox that allows users to specify a pattern to ignore specific files, such as tests.
 * Remove all PHP code, use only Python instead. We are currently calling a Python script from a PHP script. Its ugly.
-* Use Dojo instead of jQuery for the app itself. Ditto hardly uses any JS at all, but it does use a jQuery plugin called [Filedrop](https://github.com/weixiyen/jquery-filedrop). We should port this to Dojo.
 * Write some mother effing test cases. I don't want to. I'm lazy. But I need to.
 
 
