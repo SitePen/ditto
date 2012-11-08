@@ -26,6 +26,25 @@ Ditto requires a standards-compliant browser that supports HTML5 [File Access](h
 
 
 
+Running locally
+-----------
+
+Ditto can be run locally on any HTTP server such as Apache or Node:
+
+1. Run the following commands
+
+```
+git clone git@github.com:bitpshr/ditto.git
+cd ditto
+git submodule init
+git submodule update
+./build.sh
+```
+
+2. Deploy the contents of `dist/`
+3. Party
+
+
 Future plans
 ------------
 
