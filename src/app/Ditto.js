@@ -36,6 +36,8 @@ define([
 			parser.parse();
 			// Show initial dlg
 			this._showWelcomeDlg();
+			// Open drawer
+			this.toggleDrawer();
 		},
 
 		refresh: function(){
