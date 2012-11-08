@@ -14,10 +14,11 @@ define([
 	"dojox/dtl/Context",
 	"dojo/fx",
 	"dojo/dom-geometry",
+	"dijit/Dialog",
 	"dijit/form/TextBox",
 	"dijit/form/RadioButton",
 	"dojo/_base/sniff"
-], function(declare, has, lang, on, style, domClass, CheckBox, parser, dom, resultTemplate, query, dtl, Context, coreFx, domGeom){
+], function(declare, has, lang, on, style, domClass, CheckBox, parser, dom, resultTemplate, query, dtl, Context, coreFx, domGeom, Dialog){
 	return declare("Ditto",[],{
 		_drawerOpen : false,
 
@@ -31,7 +32,10 @@ define([
 				// Create uploader
 				this._createUploader();
 			}
+			// Parse everything
 			parser.parse();
+			// Show initial dlg
+			this._showWelcomeDlg();
 		},
 
 		refresh: function(){
@@ -190,6 +194,22 @@ define([
 				return false;
 			}
 			return true;
+		},
+
+		_showWelcomeDlg: function(){
+	        if(!window.sessionStorage || (window.sessionStorage && window.sessionStorage.dittoWelcomed!="true")){
+	        	new Dialog({
+		            title: "Ditto Introduction",
+		            content: "<div class='modalLarge'>Welcome to Ditto!</div><br>"+
+		            	"Ditto is a webapp that auto-magically resolves a project's AMD module dependencies."+
+		            	" It shows developers all explicitly required modules in a given project, and "+
+		            	"thus eases the creation of Dojo custom build profiles.",
+		            style: "width: 400px; font-size:14px;"
+		        }).show();
+		        if(window.sessionStorage){
+		        	window.sessionStorage.dittoWelcomed = "true";
+		        }
+	        }
 		}
 	});
 });
