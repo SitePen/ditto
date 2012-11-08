@@ -5,14 +5,22 @@ define([
 	"dojo/on",
 	"dojo/dom-style",
 	"dojo/dom-class",
+	"dijit/form/CheckBox",
+	"dojo/parser",
 	"dojo/dom-construct",
 	"dojo/text!./resources/Result.html",
 	"dojo/query",
 	"dojox/dtl",
 	"dojox/dtl/Context",
+	"dojo/fx",
+	"dojo/dom-geometry",
+	"dijit/form/TextBox",
+	"dijit/form/RadioButton",
 	"dojo/_base/sniff"
-], function(declare, has, lang, on, style, domClass, dom, resultTemplate, query, dtl, Context){
+], function(declare, has, lang, on, style, domClass, CheckBox, parser, dom, resultTemplate, query, dtl, Context, coreFx, domGeom){
 	return declare("Ditto",[],{
+		_drawerOpen : false,
+
 		constructor: function(){
 			// Check browser version before we do anything
 			var ok = this._checkBrowser();
@@ -23,6 +31,7 @@ define([
 				// Create uploader
 				this._createUploader();
 			}
+			parser.parse();
 		},
 
 		refresh: function(){
@@ -104,6 +113,52 @@ define([
 			domClass.remove(query("#result-"+i)[0], "loading");
 		},
 
+		toggleDrawer: function(){
+			if(this._drawerOpen){
+				this.hideDrawer();
+			}else{
+				this.showDrawer();
+			}
+		},
+
+		hideDrawer: function(){
+			if(this._drawerOpen){
+				var amt = 300;
+				this._animateDrawer(amt, this._drawerOpen);
+				this._drawerOpen = false;
+			}
+		},
+
+		showDrawer: function(){
+			if(!this._drawerOpen){
+				var amt = -300;
+				this._animateDrawer(amt, this._drawerOpen);
+				this._drawerOpen = true;
+			}
+		},
+
+		_animateDrawer: function(amt, open){
+			var t = domGeom.getMarginBox("drawer").t;
+			var l = domGeom.getMarginBox("drawer").l;
+			style.set("drawer", "top", t+"px");
+			style.set("drawer", "left", l+"px");
+			coreFx.slideTo({
+				node: "drawer",
+				top: t.toString(),
+				left: (l + amt).toString(),
+				unit: "px",
+				onEnd: lang.hitch(this, function(){
+					style.set("drawer", "top", "50%");
+					style.set("drawer", "left", "auto");
+					if(open){
+						style.set("drawer", "right", "-310px");
+					}else{
+						style.set("drawer", "right", "0");
+					}
+				})
+			}).play();
+		},
+
 		_createUploader: function(){
 			// Callbacks bc j(ust)Query's scoping is weird
 			var errFunc = lang.hitch(this, "onUploadError");
@@ -125,6 +180,7 @@ define([
 
 		_connectStuff: function(){
 			query(".refresh").on("click", this.refresh);
+			query(".handle").on("click", lang.hitch(this, "toggleDrawer"));
 		},
 
 		_checkBrowser: function(){
