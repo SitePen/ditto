@@ -37,7 +37,7 @@ define([
 			// Show initial dlg
 			this._showWelcomeDlg();
 			// Open drawer
-			this.toggleDrawer();
+			// this.toggleDrawer();
 		},
 
 		refresh: function(){
