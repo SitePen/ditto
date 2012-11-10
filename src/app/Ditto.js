@@ -200,12 +200,13 @@ define([
 		},
 
 		_checkBrowser: function(){
-			if(!has("webkit") || has("webkit")<536 || !has("ff") || has("ff")<16){
+			if((has("webkit") && has("webkit")>=536) || (has("ff") && has("ff")>=16)){
+				return true;
+			}else{
 				dom.destroy(query("#wrapper")[0]);
-				style.on(query(".alert")[0], "display", "block");
+				style.set(query(".alert")[0], "display", "block");
 				return false;
 			}
-			return true;
 		},
 
 		_showWelcomeDlg: function(){
