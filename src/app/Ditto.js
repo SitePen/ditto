@@ -26,6 +26,10 @@ define([
 		_drawerOpen : false,
 
 		constructor: function(){
+			// Set initial state
+			this.refresh();
+			// Parse everything
+			parser.parse();
 			// Check browser version before we do anything
 			var ok = this._checkBrowser();
 			// If all is OK, continue on
@@ -35,12 +39,8 @@ define([
 				// Create uploader
 				this._createUploader();
 			}
-			// Parse everything
-			parser.parse();
 			// Show initial dlg
 			this._showWelcomeDlg();
-			// Open drawer
-			// this.toggleDrawer();
 		},
 
 		refresh: function(){
@@ -48,17 +48,26 @@ define([
 			style.set(query("#dropbox")[0], "display", "block");
 			// Clear out old results
 			query("#results")[0].innerHTML = "";
+			// Color it black now
+			style.set(query(".instructions")[0], "color", "black");
+			// Reset prompt
+			query(".prompt")[0].innerHTML = "Each project will be analyzed and all required AMD modules will be "+
+				"listed. Dojo.requires can be listed if <i>Legacy Mode</i> is enabled via the options pane.";
+			// Reset instructions
+			query(".instructions")[0].innerHTML = "Drop your project .zip(s) here.";
 			// Hide the refresh button
 			style.set(query(".refresh")[0], "display", "none");
 		},
 
 		showMessage: function(msg){
 			// Grab a handle to the message div
-			var message = query('.message')[0];
+			var error = query('.instructions')[0];
+			// Empty prompt
+			query(".prompt")[0].innerHTML = "";
 			// Blast in msg
-			message.innerHTML = msg;
+			error.innerHTML = msg;
 			// Color it red now
-			style.set(query(".message")[0], "color", "red");
+			style.set(query(".instructions")[0], "color", "red");
 		},
 
 		onUploadError: function(err, file) {
@@ -77,12 +86,16 @@ define([
 					this.showMessage('Uh oh. Something went horribly wrong...');
 					break;
 			}
+			// Show the refresh button
+			this._showRefreshButton();
 		},
 
 		onUploadBefore: function(file){
 			// Make sure we are dealing with a .zip
 			if(file.type!="application/zip" && file.type!="application/x-zip-compressed"){
 				this.showMessage("Only .zips are allowed!");
+				// Show the refresh button
+				this._showRefreshButton();
 				return false;
 			}
 			return true;
@@ -92,7 +105,7 @@ define([
 			// Hide the drop box
 			style.set(query("#dropbox")[0], "display", "none");
 			// Show the refresh button
-			style.set(query(".refresh")[0], "display", "inline");
+			this._showRefreshButton();
 			// Render template
 			var template = new dojox.dtl.Template(resultTemplate);
 			var context = new dojox.dtl.Context({
@@ -149,6 +162,10 @@ define([
 				this._animateDrawer(amt, this._drawerOpen);
 				this._drawerOpen = true;
 			}
+		},
+
+		_showRefreshButton: function(){
+			style.set(query(".refresh")[0], "display", "inline");
 		},
 
 		_animateDrawer: function(amt, open){
