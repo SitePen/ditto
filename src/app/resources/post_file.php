@@ -21,7 +21,22 @@
 			 	exit_status('Unzip failed!');
 			}
 			$output = array();
-			exec("python ditto.py ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4)), $output);
+
+			// Process params here
+			$legacyMode = (array_key_exists("legacyMode", $_GET)==TRUE && $_GET["legacyMode"] == "enabled") ? "-l " : "";
+			$customOnly = (array_key_exists("customOnly", $_GET)==TRUE && $_GET["customOnly"] == "enabled") ? "-c " : "";
+			$dojoCheck = (array_key_exists("dojoCheck", $_GET)==TRUE && $_GET["dojoCheck"] == "on") ? "-noDojo " : "";
+			$dojoxCheck = (array_key_exists("dojoxCheck", $_GET)==TRUE && $_GET["dojoxCheck"] == "on") ? "-noDojox " : "";
+			$dijitCheck = (array_key_exists("dijitCheck", $_GET)==TRUE && $_GET["dijitCheck"] == "on") ? "-noDijit " : "";
+			$customCheck = (array_key_exists("customCheck", $_GET)==TRUE && $_GET["customCheck"] == "on");
+			$customIgnore = "";
+			if($customCheck == TRUE){
+				$customIgnore = "-i ".$_GET["customCheckArea"]." ";
+			}
+
+
+			$bash = "python ditto.py -d ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4))." ".$customIgnore.$legacyMode.$customOnly.$dijitCheck.$dojoxCheck.$dojoCheck;
+			exec($bash, $output);
 			$deps = $output[0];
 			exec("rm -rf ".escapeshellarg($upload_dir.substr($pic['name'], 0, strlen($pic['name'])-4))."*", $dontCare);
 			exit_status($deps);

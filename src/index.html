@@ -25,50 +25,52 @@
                 <div class="drawer" id="drawer">
                     <div class="handle">options</div>
                     <div class="drawerContent">
-                        <div class="formGroup">
-                            <div class="legend">Legacy Mode
-                                <div class="subtext">
-                                    Detect modules that are required using legacy dojo.require syntax in addition those required to AMD syntax.
+                        <div data-dojo-type="dijit/form/Form" id="options" data-dojo-id="options">
+                            <div class="formGroup">
+                                <div class="legend">Legacy Mode
+                                    <div class="subtext">
+                                        Detect modules that are required using legacy dojo.require syntax in addition those required to AMD syntax.
+                                    </div>
+                                </div>
+                                <div class="formRow">
+                                    <input name="legacyMode" data-dojo-type="dijit/form/RadioButton" checked value="enabled"/> <label for="legacyMode">Enabled</label>
+                                </div>
+                                <div class="formRow">
+                                    <input name="legacyMode" data-dojo-type="dijit/form/RadioButton" value="disabled"/> <label for="legacyMode">Disabled</label>
                                 </div>
                             </div>
-                            <div class="formRow">
-                                <input name="legacyMode" data-dojo-type="dijit/form/RadioButton" checked/> <label for="legacyMode">Enabled</label>
-                            </div>
-                            <div class="formRow">
-                                <input name="legacyMode" data-dojo-type="dijit/form/RadioButton" /> <label for="legacyMode">Disabled</label>
-                            </div>
-                        </div>
-                        <div class="formGroup">
-                            <div class="legend">Custom Modules Only
-                                <div class="subtext">
-                                    List only custom modules that are required, no dojo modules that are required.
+                            <div class="formGroup">
+                                <div class="legend">Custom Modules Only
+                                    <div class="subtext">
+                                        List only custom modules that are required, no dojo modules that are required.
+                                    </div>
+                                </div>
+                                <div class="formRow">
+                                    <input name="customOnly" data-dojo-type="dijit/form/RadioButton" value="enabled"/> <label for="customOnly">Enabled</label>
+                                </div>
+                                <div class="formRow">
+                                    <input name="customOnly" data-dojo-type="dijit/form/RadioButton" value="disabled" checked/> <label for="customOnly">Disabled</label>
                                 </div>
                             </div>
-                            <div class="formRow">
-                                <input name="customOnly" data-dojo-type="dijit/form/RadioButton" /> <label for="customOnly">Enabled</label>
-                            </div>
-                            <div class="formRow">
-                                <input name="customOnly" data-dojo-type="dijit/form/RadioButton" checked/> <label for="customOnly">Disabled</label>
-                            </div>
-                        </div>
-                        <div class="formGroup">
-                            <div class="legend">Ignored folders
-                                <div class="subtext">
-                                    Don't search folders matching any of the names below for modules.
+                            <div class="formGroup">
+                                <div class="legend">Ignored folders
+                                    <div class="subtext">
+                                        Don't search folders matching any of the names below for modules.
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="formRow">
-                                <input id="dojoCheck" name="dojoCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dojoCheck">Dojo</label>
-                            </div>
-                            <div class="formRow">
-                                <input id="dijitCheck" name="dijitCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dijitCheck">Dijit</label>
-                            </div>
-                            <div class="formRow">
-                                <input id="dojoxCheck" name="dojoxCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dojoxCheck">Dojox</label>
-                            </div>
-                            <div class="formRow">
-                                <input id="customCheck" name="customCheck" data-dojo-type="dijit/form/CheckBox" /> <input type="text" name="customCheckArea"
-                                    data-dojo-type="dijit/form/TextBox" id="customCheckArea" class="regexp" data-dojo-props="placeHolder:'Custom'"/>
+                                <div class="formRow">
+                                    <input id="dojoCheck" name="dojoCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dojoCheck">Dojo</label>
+                                </div>
+                                <div class="formRow">
+                                    <input id="dijitCheck" name="dijitCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dijitCheck">Dijit</label>
+                                </div>
+                                <div class="formRow">
+                                    <input id="dojoxCheck" name="dojoxCheck" data-dojo-type="dijit/form/CheckBox" checked/> <label for="dojoxCheck">Dojox</label>
+                                </div>
+                                <div class="formRow">
+                                    <input id="customCheck" name="customCheck" data-dojo-type="dijit/form/CheckBox" /> <input type="text" name="customCheckArea"
+                                        data-dojo-type="dijit/form/TextBox" id="customCheckArea" class="regexp" data-dojo-props="placeHolder:'Custom'"/>
+                                </div>
                             </div>
                         </div>
                     </div>

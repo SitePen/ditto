@@ -4,6 +4,7 @@ define([
 	"dojo/_base/lang",
 	"dojo/on",
 	"dojo/dom-style",
+	"dijit/registry",
 	"dojo/dom-class",
 	"dijit/form/CheckBox",
 	"dojo/parser",
@@ -11,14 +12,16 @@ define([
 	"dojo/text!./resources/Result.html",
 	"dojo/query",
 	"dojox/dtl",
+	"dojo/io-query",
 	"dojox/dtl/Context",
 	"dojo/fx",
 	"dojo/dom-geometry",
+	"dijit/form/Form",
 	"dijit/Dialog",
 	"dijit/form/TextBox",
 	"dijit/form/RadioButton",
 	"dojo/_base/sniff"
-], function(declare, has, lang, on, style, domClass, CheckBox, parser, dom, resultTemplate, query, dtl, Context, coreFx, domGeom, Dialog){
+], function(declare, has, lang, on, style, dijit, domClass, CheckBox, parser, dom, resultTemplate, query, dtl, ioQuery, Context, coreFx, domGeom, Form, Dialog){
 	return declare("Ditto",[],{
 		_drawerOpen : false,
 
@@ -119,6 +122,11 @@ define([
 			domClass.remove(query("#result-"+i)[0], "loading");
 		},
 
+		onModifyUrl: function(url){
+			var queryString = "?"+ioQuery.objectToQuery(dijit.byId("options").get("value"));
+			return url+queryString;
+		},
+
 		toggleDrawer: function(){
 			if(this._drawerOpen){
 				this.hideDrawer();
@@ -171,6 +179,7 @@ define([
 			var beforeFunc = lang.hitch(this, "onUploadBefore");
 			var beginFunc = lang.hitch(this, "onUploadBegin");
 			var doneFunc = lang.hitch(this, "onUploadDone");
+			var modifyUrl = lang.hitch(this, "onModifyUrl");
 			// TODO Convert this jQuery plugin to pure Dojo
 			$('#dropbox').filedrop({
 				paramname 		: 'pic',
@@ -180,7 +189,8 @@ define([
 		    	error 			: errFunc,
 				beforeEach 		: beforeFunc,
 				uploadStarted 	: beginFunc,
-				uploadFinished 	: doneFunc
+				uploadFinished 	: doneFunc,
+				modifyUrl 		: modifyUrl
 			});
 		},
 
