@@ -138,23 +138,38 @@ header span{
 }
 
 footer {
-	height:30px;
+	height:40px;
 	width: 100%;
 	position:absolute;
 	bottom:0px; 
-	height:30px; 
 	left:0px; 
 	overflow:hidden;
 	background:url(img/bg.png);
 	background-size: 100% 100%;
-	text-align:center;
 	border-top:1px solid #333;
 }
 
 footer span{
-	font-size:20px;
+	font-size:15px;
 	color:#EEE;
 	text-shadow: black 1px 1px 3px;
+	margin-left:10px;
+	margin-right:10px;
+	display:inline-block;
+	height:40px;
+	line-height:40px;
+}
+
+.dojoLogo{
+	height:20px;
+	margin-top:10px;
+	width:auto;
+	position:absolute;
+	right:20px;
+}
+
+.bitpshr{
+	margin-left:20px !important;
 }
 
 #content{
