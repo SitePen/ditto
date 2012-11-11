@@ -8,12 +8,15 @@ What it does
 ------------
 Ditto works by traversing a project's file tree and finding all modules that are <b>explicitly</b> required. The modules can be AMD modules or legacy Dojo modules, and can be required anywhere in any file within a project. Ditto will format all dependcies in standard dependency string format, giving the user an instant view into a project's dependencies.
 
-Ditto includes several options to refine what modules it returns during analyzation. As mentioned, Ditto optionally supports listing all dojo.requires in addition to standard AMD modules. I wanted to make this really powerful for the Dojo community in particular; adding legacy support was a must. A user can also tell Ditto to only list custom modules, nothing from the Dojo, Dijit, or Dojox packages, even if explicitly required. Finally, a user can skip particular folders altogether. This is very useful when a library is included in your project. Again, think Dojo. If I had `dojo/`, `dojox/`, and `dijit/` locally in my project, I'd get tons of modules I don't care about in my dependency list.
-
 
 What it doesn't do
 ------------
 Ditto does <b>not</b> traverse the entire dependency tree. It will only list the modules that are required <i>within</i> your project. For example, if I require a `dijit.form.FilteringSelect` within my project, Ditto will only list "dijit/form/FilteringSelect", and not all dependencies of the FilteringSelect widget itself. Any worthwhile optimizer takes care of all implicit dependencies, so these shouldn't be included in your build profiles anyways!
+
+
+Options
+------------
+Ditto includes several options to refine what modules it returns during analyzation. As mentioned, Ditto optionally supports listing all dojo.requires in addition to standard AMD modules. I wanted to make this really powerful for the Dojo community in particular; adding legacy support was a must. A user can also tell Ditto to only list custom modules, nothing from the Dojo, Dijit, or Dojox packages, even if explicitly required. Finally, a user can skip particular folders altogether. This is very useful when a library is included in your project. Again, think Dojo. If I had `dojo/`, `dojox/`, and `dijit/` locally in my project, I'd get tons of modules I don't care about in my dependency list.
 
 
 Browser support
