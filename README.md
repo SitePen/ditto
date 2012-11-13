@@ -42,15 +42,6 @@ git submodule update
 3. Party
 
 
-Future plans
-------------
-Ditto is a <b>work in progress</b>. There are several enhancements that can be made, including:
-
-* Ignore certain files. Add an optional textbox that allows users to specify a pattern to ignore specific files, such as tests.
-* Remove all PHP code, use only Python instead. We are currently calling a Python script from a PHP script. Its ugly.
-* Write some mother effing test cases. I don't want to. I'm lazy. But I need to.
-
-
 
 Features & bugs
 -----------
