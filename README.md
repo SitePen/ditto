@@ -19,11 +19,6 @@ Options
 Ditto includes several options to refine what modules it returns during analyzation. As mentioned, Ditto optionally supports listing all dojo.requires in addition to standard AMD modules. I wanted to make this really powerful for the Dojo community in particular; adding legacy support was a must. A user can also tell Ditto to only list custom modules, nothing from the Dojo, Dijit, or Dojox packages, even if explicitly required. Finally, a user can skip particular folders altogether. This is very useful when a library is included in your project. Again, think Dojo. If I had `dojo/`, `dojox/`, and `dijit/` locally in my project, I'd get tons of modules I don't care about in my dependency list.
 
 
-Browser support
------------
-Ditto requires a standards-compliant browser that supports HTML5 [File Access](http://www.html5rocks.com/en/features/file_access). Use the latest version of Safari, Firefox, or Chrome and you should be fine. I could definitely use some help to determine specific version cutoffs.
-
-
 Running locally
 -----------
 Ditto can be run locally on any HTTP server such as Apache or Node:
@@ -42,14 +37,9 @@ git submodule update
 3. Party
 
 
-Future plans
-------------
-Ditto is a <b>work in progress</b>. There are several enhancements that can be made, including:
-
-* Ignore certain files. Add an optional textbox that allows users to specify a pattern to ignore specific files, such as tests.
-* Remove all PHP code, use only Python instead. We are currently calling a Python script from a PHP script. Its ugly.
-* Write some mother effing test cases. I don't want to. I'm lazy. But I need to.
-
+Browser support
+-----------
+Ditto requires a standards-compliant browser that supports HTML5 [File Access](http://www.html5rocks.com/en/features/file_access). Use the latest version of Safari, Firefox, or Chrome and you should be fine. I could definitely use some help to determine specific version cutoffs.
 
 
 Features & bugs
@@ -59,3 +49,7 @@ If you experience any issues using Ditto, or would like to see new functionality
 https://github.com/bitpshr/ditto/issues
 
 
+License
+-------
+
+Ditto is licensed under the [same terms](http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE) as the Dojo Toolkit. Consult the individual projects (see the Useful resources section above) for additional licensing information.
