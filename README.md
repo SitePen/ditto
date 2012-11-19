@@ -39,7 +39,7 @@ git submodule update
 
 Browser support
 -----------
-Ditto requires a standards-compliant browser that supports HTML5 [File Access](http://www.html5rocks.com/en/features/file_access). Use the latest version of Safari, Firefox, or Chrome and you should be fine. I could definitely use some help to determine specific version cutoffs.
+Ditto requires a standards-compliant browser that supports HTML5 [File Access](http://www.html5rocks.com/en/features/file_access). Use the latest version of Safari, Firefox, or Chrome and you should be fine. I plan to implement regular old 1995-style file upload functionality for older browsers (I’m looking at you, IE). I could definitely use some help to determine specific version cutoffs.
 
 
 Features & bugs
