@@ -125,12 +125,16 @@ define([
 			// Show the result 
 			style.set(query("#resultContainer-"+i)[0], "display", "block");
 			// Sort the dependency array alphabetically
-			response.deps.sort();
+			var deps = [];
+			for(var key in response.deps){
+				deps.push(response.deps[key]);
+			}
+			deps.sort();
 			// 
-			for(var j=0; j<response.deps.length; j++){
+			for(var j=0; j<deps.length; j++){
 				query("#resultLower-"+i)[0].innerHTML += 
 					"<div class='resultRow-"+((j%2==0)?"odd":"even")+"'>"
-					+response.deps[j]+((j==response.deps.length-1)?"":",")+"</div>";
+					+deps[j]+((j==deps.length-1)?"":",")+"</div>";
 			}
 			domClass.remove(query("#result-"+i)[0], "loading");
 		},

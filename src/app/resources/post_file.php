@@ -168,7 +168,7 @@ if(array_key_exists('pic',$_FILES) && $_FILES['pic']['error'] == 0 ){
 exit_status('Something went wrong with your upload!');
 
 function exit_status($arr){
-	echo json_encode(array('deps'=>$arr));
+	echo json_encode(array('deps'=>array_unique($arr)));
 	exit;
 }
 
