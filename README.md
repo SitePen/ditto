@@ -21,7 +21,7 @@ Ditto includes several options to refine what modules it returns during analyzat
 
 Running locally
 -----------
-Ditto can be run locally on any HTTP server such as Apache or Node:
+Ditto can be run locally in a php environment:
 
 1. Run the following commands
 
@@ -33,7 +33,7 @@ git submodule update
 ./build.sh
 ```
 
-2. Deploy the contents of `dist/`
+2. Deploy the contents of `dist/` to a php-enabled http server
 3. Party
 
 
