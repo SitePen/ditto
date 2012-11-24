@@ -1,4 +1,4 @@
-[Ditto](http://bitpshr.info/ditto)
+[Ditto](http://profile.dojotoolkit.org/)
 =================
 
 Ditto is a webapp that auto-magically resolves a project's AMD and legacy dojo.require dependencies. It's meant to ease the creation of custom build profiles by showing developers all explicitly required modules in a given project.
