@@ -52,4 +52,4 @@ https://github.com/bitpshr/ditto/issues
 License
 -------
 
-Ditto is licensed under the [same terms](http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE) as the Dojo Toolkit. Consult the individual projects (see the Useful resources section above) for additional licensing information.
+Ditto is licensed under the [same terms](http://bugs.dojotoolkit.org/browser/dojo/trunk/LICENSE) as the Dojo Toolkit. Consult the individual projects for additional licensing information.
