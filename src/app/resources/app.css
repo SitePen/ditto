@@ -207,6 +207,15 @@ footer span{
 	text-align:center;
 }
 
+.sample {
+	position: fixed;
+	width: 150px;
+	left: 50%;
+	margin-left: -75px;
+	top: 50%;
+	margin-top: 180px;
+}
+
 #dropbox img {
 	height:130px;
 	width:auto;
