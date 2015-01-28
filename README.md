@@ -16,7 +16,7 @@ Ditto does <b>not</b> traverse the entire dependency tree. It will only list the
 
 Options
 ------------
-Ditto includes several options to refine what modules it returns during analyzation. As mentioned, Ditto optionally supports listing all dojo.requires in addition to standard AMD modules. I wanted to make this really powerful for the Dojo community in particular; adding legacy support was a must. A user can also tell Ditto to only list custom modules, nothing from the Dojo, Dijit, or Dojox packages, even if explicitly required. Finally, a user can skip particular folders altogether. This is very useful when a library is included in your project. Again, think Dojo. If I had `dojo/`, `dojox/`, and `dijit/` locally in my project, I'd get tons of modules I don't care about in my dependency list.
+Ditto includes several options to refine what modules it returns during analysis. As mentioned, Ditto optionally supports listing all dojo.requires in addition to standard AMD modules. I wanted to make this really powerful for the Dojo community in particular; adding legacy support was a must. A user can also tell Ditto to only list custom modules, nothing from the Dojo, Dijit, or Dojox packages, even if explicitly required. Finally, a user can skip particular folders altogether. This is very useful when a library is included in your project. Again, think Dojo. If I had `dojo/`, `dojox/`, and `dijit/` locally in my project, I'd get tons of modules I don't care about in my dependency list.
 
 
 Running locally
